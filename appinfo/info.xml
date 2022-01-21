@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <id>deckrestapi</id>
+    <name>Deck REST</name>
+    <summary>External REST API to nextcloud deck plugin</summary>
+    <description>
+        This plugin is providing REST API for another nextcloud plugin called deck. The original REST API provides some endpoint but you cannot for example backup all boards with single requests and this is example of functionality that this API is going to provide.
+    </description>
+    <version>0.0.1</version>
+    <licence>agpl</licence>
+    <author mail="filip.izydorczyk@protonmail.com">Filip Izydorczyk</author>
+    <namespace>DeckREST</namespace>
+    <category>tools</category>
+    <bugs>https://github.com/filipizydorczyk</bugs>
+    <!-- <repository type="git">https://github.com/nextcloud/deck.git</repository>
+    <screenshot>https://download.bitgrid.net/nextcloud/deck/screenshots/1.0/Deck-1.png</screenshot> -->
+    <dependencies>
+        <nextcloud min-version="22" max-version="22" />
+    </dependencies>
+</info>
