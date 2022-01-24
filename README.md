@@ -9,6 +9,21 @@ To test app run docker compose `docker-compose up -d` in porject root directory 
 
 Watch that you have to have [deck](https://github.com/nextcloud/deck) app installed and enabled in order to get this api working. Otherwise any request will return **424 Failed Dependency** error.
 
+# Code conduct
+
+1. Define types whenever possible
+
+```php
+private IAppManager $appManager;
+```
+
+2. Define imports wihout `\` prefix
+
+```php
+use OCP\App\IAppManager; # Correct
+use \OCP\IRequest; # Incorect
+```
+
 # 👩🏾‍🔧 Trouble shooting
 
 If you are using NTFS harddrive you can ran into `Your data directory is readable by other users. Please change the permissions to 0770 so that the directory cannot be listed by other users.` error. In that case edit nextcloud config file (`./nextcloud/config/config.php`) and add this line
