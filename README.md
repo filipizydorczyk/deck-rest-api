@@ -1,4 +1,4 @@
-This plugin is providing REST API for another nextcloud plugin called deck. The original REST API provides some endpoint but you cannot for example backup all boards with single requests and this is example of functionality that this API is going to provide. More in readme when development will start.
+This plugin is providing REST API for another nextcloud plugin called [deck](https://github.com/nextcloud/deck). The original REST API provides some endpoint but you cannot for example backup all boards with single requests and this is example of functionality that this API is going to provide. More in readme when development will start.
 
 # 📲 Testing app
 
@@ -6,6 +6,8 @@ To test app run docker compose `docker-compose up -d` in porject root directory 
 
 -   clean - will delete previous app build from test instance
 -   test - will delete previous build and push new one
+
+Watch that you have to have [deck](https://github.com/nextcloud/deck) app installed and enabled in order to get this api working. Otherwise any request will return **424 Failed Dependency** error.
 
 # 👩🏾‍🔧 Trouble shooting
 
