@@ -2,6 +2,7 @@
 
 namespace OCA\DeckREST\Controller;
 
+use OCP\App\IAppManager;
 use OCP\AppFramework\ApiController;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\DataResponse;
@@ -9,9 +10,9 @@ use OCP\IRequest;
 
 class BoardApiController extends ApiController
 {
-    private \OCP\App\IAppManager $appManager;
+    private IAppManager $appManager;
 
-    public function __construct($appName, IRequest $request, \OCP\App\IAppManager $appManager)
+    public function __construct($appName, IRequest $request, IAppManager $appManager)
     {
         parent::__construct($appName, $request);
         $this->appManager = $appManager;
