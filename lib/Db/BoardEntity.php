@@ -25,6 +25,6 @@ class BoardEntity extends Entity implements \JsonSerializable
 
     public function jsonSerialize()
     {
-        return $this->title;
+        return ['title' => $this->title];
     }
 };

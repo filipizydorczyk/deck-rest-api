@@ -29,7 +29,7 @@ class BoardApiController extends ApiController
     {
         // @CORS
         if (!$this->appManager->isEnabledForUser("deck")) {
-            return new DataResponse("Deck app is required to be installed for this API to work", HTTP::STATUS_FAILED_DEPENDENCY);
+            return new DataResponse(['message' => "Deck app is required to be installed for this API to work"], HTTP::STATUS_FAILED_DEPENDENCY);
         }
         return new DataResponse($this->boardMapper->findAll()->jsonSerialize(), HTTP::STATUS_OK);
     }
