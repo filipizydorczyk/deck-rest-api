@@ -14,12 +14,12 @@ class BoardMapper extends QBMapper
         parent::__construct($db, BoardMapper::$BOARD_TABLE, BoardEntity::class);
     }
 
-    public function findAll(): BoardEntity
+    public function findAll(): array
     {
         $qb = $this->db->getQueryBuilder();
         $qb->select('*')
             ->from(BoardMapper::$BOARD_TABLE)
             ->orderBy('id');
-        return $this->findEntity($qb);
+        return $this->findEntities($qb);
     }
 };

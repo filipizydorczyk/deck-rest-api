@@ -2,7 +2,7 @@
 
 namespace OCA\DeckREST\Controller;
 
-use OCA\DeckREST\Db\BoardMapper;
+use OCA\DeckREST\Service\BoardService;
 use OCP\App\IAppManager;
 use OCP\AppFramework\ApiController;
 use OCP\AppFramework\Http;
@@ -12,13 +12,13 @@ use OCP\IRequest;
 class BoardApiController extends ApiController
 {
     private IAppManager $appManager;
-    private BoardMapper $boardMapper;
+    private BoardService $boardService;
 
-    public function __construct($appName, IRequest $request, IAppManager $appManager, BoardMapper $boardMapper)
+    public function __construct($appName, IRequest $request, IAppManager $appManager, BoardService $boardService)
     {
         parent::__construct($appName, $request);
         $this->appManager = $appManager;
-        $this->boardMapper = $boardMapper;
+        $this->boardService = $boardService;
     }
 
     /**
@@ -31,6 +31,6 @@ class BoardApiController extends ApiController
         if (!$this->appManager->isEnabledForUser("deck")) {
             return new DataResponse(['message' => "Deck app is required to be installed for this API to work"], HTTP::STATUS_FAILED_DEPENDENCY);
         }
-        return new DataResponse($this->boardMapper->findAll()->jsonSerialize(), HTTP::STATUS_OK);
+        return new DataResponse($this->boardService->findAll(), HTTP::STATUS_OK);
     }
 };
