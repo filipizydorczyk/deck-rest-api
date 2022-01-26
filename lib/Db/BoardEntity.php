@@ -25,6 +25,18 @@ class BoardEntity extends Entity implements \JsonSerializable
 
     public function jsonSerialize()
     {
-        return ['title' => $this->title];
+        return [
+            'title' => $this->title,
+            'owner' => $this->owner,
+            'color' => $this->color,
+            'archived' => $this->archived,
+            'labels' => $this->labels,
+            'permissions' => $this->permissions,
+            'users' => $this->users,
+            'shared' => $this->shared,
+            'stacks' => $this->stacks,
+            'deletedAt' => $this->deletedAt,
+            'lastModified' => $this->lastModified,
+        ];
     }
 };
