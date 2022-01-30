@@ -6,5 +6,6 @@ return [
         ['name' => 'board_api#index', 'url' => '/api/v{apiVersion}/boards', 'verb' => 'GET'],
         ['name' => 'label_api#index', 'url' => '/api/v{apiVersion}/labels', 'verb' => 'GET'],
         ['name' => 'stack_api#index', 'url' => '/api/v{apiVersion}/stacks', 'verb' => 'GET'],
+        ['name' => 'card_api#index', 'url' => '/api/v{apiVersion}/cards', 'verb' => 'GET'],
     ]
 ];
