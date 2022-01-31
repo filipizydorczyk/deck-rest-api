@@ -2,7 +2,7 @@
 
 namespace OCA\DeckREST\Service;
 
-use OCA\DeckREST\Db\CardMapper;
+use OCA\DeckREST\Db\Mapper\CardMapper;
 
 class CardService
 {

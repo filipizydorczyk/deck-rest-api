@@ -1,7 +1,8 @@
 <?php
 
-namespace OCA\DeckREST\Db;
+namespace OCA\DeckREST\Db\Mapper;
 
+use OCA\DeckREST\Db\Entity\LabelEntity;
 use OCP\AppFramework\Db\QBMapper;
 use OCP\IDBConnection;
 

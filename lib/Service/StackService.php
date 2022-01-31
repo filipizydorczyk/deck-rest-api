@@ -2,7 +2,7 @@
 
 namespace OCA\DeckREST\Service;
 
-use OCA\DeckREST\Db\StackMapper;
+use OCA\DeckREST\Db\Mapper\StackMapper;
 
 class StackService
 {

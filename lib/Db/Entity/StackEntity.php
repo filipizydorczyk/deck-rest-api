@@ -1,6 +1,6 @@
 <?php
 
-namespace OCA\DeckREST\Db;
+namespace OCA\DeckREST\Db\Entity;
 
 use OCP\AppFramework\Db\Entity;
 

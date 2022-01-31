@@ -2,7 +2,7 @@
 
 namespace OCA\DeckREST\Service;
 
-use OCA\DeckREST\Db\LabelMapper;
+use OCA\DeckREST\Db\Mapper\LabelMapper;
 
 class LabelService
 {

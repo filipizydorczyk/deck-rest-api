@@ -2,7 +2,7 @@
 
 namespace OCA\DeckREST\Service;
 
-use OCA\DeckREST\Db\BoardMapper;
+use OCA\DeckREST\Db\Mapper\BoardMapper;
 
 class BoardService
 {

@@ -1,24 +1,25 @@
 <?php
 
-namespace OCA\DeckREST\Db;
+namespace OCA\DeckREST\Db\Mapper;
 
+use OCA\DeckREST\Db\Entity\StackEntity;
 use OCP\AppFramework\Db\QBMapper;
 use OCP\IDBConnection;
 
-class BoardMapper extends QBMapper
+class StackMapper extends QBMapper
 {
-    public static $BOARD_TABLE = 'deck_boards';
+    public static $BOARD_TABLE = 'deck_stacks';
 
     public function __construct(IDBConnection $db)
     {
-        parent::__construct($db, BoardMapper::$BOARD_TABLE, BoardEntity::class);
+        parent::__construct($db, StackMapper::$BOARD_TABLE, StackEntity::class);
     }
 
     public function findAll(): array
     {
         $qb = $this->db->getQueryBuilder();
         $qb->select('*')
-            ->from(BoardMapper::$BOARD_TABLE)
+            ->from(StackMapper::$BOARD_TABLE)
             ->orderBy('id');
         return $this->findEntities($qb);
     }
