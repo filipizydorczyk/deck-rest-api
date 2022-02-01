@@ -11,9 +11,9 @@ class BoardEntity extends Entity implements \JsonSerializable
     protected $owner;
     protected $color;
     protected bool $archived = FALSE;
-    /** @var Label[]|null */
+    /** @var Label[] */
     protected $labels = [];
-    /** @var Acl[]|null */
+    /** @var Acl[] */
     protected $acl = [];
     protected $permissions = [];
     protected $users = [];
