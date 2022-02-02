@@ -1,0 +1,12 @@
+{
+    "name": "filip-izydorczyk/deck-rest-api",
+    "authors": [
+        {
+            "name": "Filip Izydorczyk"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    }
+}
