@@ -3,7 +3,6 @@
 namespace OCA\DeckREST\Db\Entity;
 
 use OCP\AppFramework\Db\Entity;
-use OCP\IUser;
 
 class BoardEntity extends Entity implements \JsonSerializable
 {
@@ -22,12 +21,6 @@ class BoardEntity extends Entity implements \JsonSerializable
     protected $deletedAt = 0;
     protected $lastModified = 0;
 
-    // public function __construct(IUser $user)
-    // {
-    //     $this->owner = $user;
-    //     $this->getter('owner');
-    // }
-
     protected $settings = [];
 
     public function jsonSerialize()
@@ -35,11 +28,6 @@ class BoardEntity extends Entity implements \JsonSerializable
         return [
             'title' => $this->title,
             'owner' =>  $this->owner,
-            // [
-            //     'uid' => $this->owner->getUID(),
-            //     'displayname' => $this->owner->getDisplayName(),
-            //     'type' => 0
-            // ],
             'color' => $this->color,
             'archived' => $this->archived,
             'labels' => $this->labels,
