@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "937e1470-2cd2-4e4e-9eda-264af2c328d9",
+		"name": "deck-rest-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Boards",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4325/index.php/apps/deckrestapi/api/v1/boards",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4325",
+					"path": [
+						"index.php",
+						"apps",
+						"deckrestapi",
+						"api",
+						"v1",
+						"boards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cards",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4325/index.php/apps/deckrestapi/api/v1/cards",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4325",
+					"path": [
+						"index.php",
+						"apps",
+						"deckrestapi",
+						"api",
+						"v1",
+						"cards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Labels",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4325/index.php/apps/deckrestapi/api/v1/labels",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4325",
+					"path": [
+						"index.php",
+						"apps",
+						"deckrestapi",
+						"api",
+						"v1",
+						"labels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stacks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4325/index.php/apps/deckrestapi/api/v1/stacks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4325",
+					"path": [
+						"index.php",
+						"apps",
+						"deckrestapi",
+						"api",
+						"v1",
+						"stacks"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

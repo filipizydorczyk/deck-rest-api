@@ -9,6 +9,8 @@ To test app run docker compose `docker-compose up -d` in porject root directory 
 
 Watch that you have to have [deck](https://github.com/nextcloud/deck) app installed and enabled in order to get this api working. Otherwise any request will return **424 Failed Dependency** error.
 
+To tests endpoints with postman you can download [postman collection file](./docs/deck-rest-api.postman_collection.json)
+
 # Code conduct
 
 1. Define types whenever possible
