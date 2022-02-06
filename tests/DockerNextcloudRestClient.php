@@ -19,7 +19,6 @@ final class DockerNextcloudRestClient
     {
         $this->client = new Client([
             'base_uri' => 'http://localhost:4325',
-            'auth' => ['test', 'test'],
         ]);
     }
 
@@ -31,8 +30,13 @@ final class DockerNextcloudRestClient
         return self::$instance;
     }
 
-    public function request($method, $endpoint): ResponseInterface
+    public function requestAuthenticated($method, $endpoint): ResponseInterface
     {
-        return $this->client->request($method, $endpoint);
+        return $this->client->request($method, $endpoint, ['auth' => ['test', 'test']]);
+    }
+
+    public function requestNotAuthenticated($method, $endpoint): ResponseInterface
+    {
+        return $this->client->request($method, $endpoint, ['http_errors' => false]);
     }
 }
