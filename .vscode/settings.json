@@ -1,6 +1,7 @@
 {
     "intelephense.environment.includePaths": [
         "./nextcloud/lib/public",
-        "./vendor/phpunit/phpunit/src"
+        "./vendor/phpunit/phpunit/src",
+        "./vendor/guzzlehttp/guzzle/src"
     ]
 }

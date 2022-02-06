@@ -5,8 +5,8 @@
             "name": "Filip Izydorczyk"
         }
     ],
-    "require": {},
     "require-dev": {
-        "phpunit/phpunit": "^9.0"
+        "phpunit/phpunit": "^9.0",
+        "guzzlehttp/guzzle": "^7.4"
     }
 }
