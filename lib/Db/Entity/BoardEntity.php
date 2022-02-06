@@ -9,31 +9,22 @@ class BoardEntity extends Entity implements \JsonSerializable
     protected $title;
     protected $owner;
     protected $color;
-    protected bool $archived = FALSE;
+    /** @var StackEntity[] */
+    protected $archived = [];
     /** @var Label[] */
     protected $labels = [];
-    /** @var Acl[] */
-    protected $acl = [];
-    protected $permissions = [];
-    protected $users = [];
-    protected $shared = 0;
+    /** @var StackEntity[] */
     protected $stacks = [];
     protected $deletedAt = 0;
     protected $lastModified = 0;
-
-    protected $settings = [];
 
     public function jsonSerialize()
     {
         return [
             'title' => $this->title,
-            'owner' =>  $this->owner,
             'color' => $this->color,
             'archived' => $this->archived,
             'labels' => $this->labels,
-            'permissions' => $this->permissions,
-            'users' => $this->users,
-            'shared' => $this->shared,
             'stacks' => $this->stacks,
             'deletedAt' => $this->deletedAt,
             'lastModified' => $this->lastModified,
