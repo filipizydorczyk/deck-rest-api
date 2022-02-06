@@ -21,7 +21,7 @@ final class BoardApiControllerTests extends TestCase
     public function testUserNotBeingLoggedInFails(): void
     {
         $client = DockerNextcloudRestClient::getInstance();
-        $response = $client->requestNotAuthenticated(DockerNextcloudRestClient::GET, '/apps/deckrestapi/api/v1/boards');
+        $response = $client->requestNotAuthenticated(DockerNextcloudRestClient::GET, BoardApiControllerTests::BASE_ENPOINT);
 
         $this->assertEquals(401, $response->getStatusCode());
     }
