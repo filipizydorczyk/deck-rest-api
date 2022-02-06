@@ -2,11 +2,11 @@ This plugin is providing REST API for another nextcloud plugin called [deck](htt
 
 # 📲 Testing app
 
-To test app run docker compose `docker-compose up -d` in porject root directory to set up test nextcloud instance. App should be available under `http://localhost:4325/`, Once u are done with coding u can use Makefile to send changes to this instacne for testing.
+For development u are going to need `composer` and `docker` installed. To test app run docker compose `docker-compose up -d` in porject root directory to set up test nextcloud instance. App should be available under `http://localhost:4325/`, Once u are done with coding u can use copmoser scripts to send changes to this instacne for testing.
 
--   clean - will delete previous app build from test instance
--   build - will delete previous build and push new one
--   test - will run unit tests
+-   `composer clean` - will delete previous app build from test instance
+-   `composer build` - will delete previous build and push new one
+-   `composer test` - will run unit tests (need to run `composer update` first to have unit tests dependencies)
 
 Watch that you have to have [deck](https://github.com/nextcloud/deck) app installed and enabled in order to get this api working. Otherwise any request will return **424 Failed Dependency** error.
 
