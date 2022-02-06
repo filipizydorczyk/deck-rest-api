@@ -10,7 +10,7 @@
         "guzzlehttp/guzzle": "^7.4"
     },
     "scripts": {
-        "test": "./vendor/bin/phpunit ./tests/BoardApiControllerTests.php",
+        "test": "./vendor/bin/phpunit --colors=always --bootstrap=./tests/bootstrap.php ./tests/BoardApiControllerTests.php",
         "clean": "rm -rf ./nextcloud/apps/deckrestapi",
         "build": "rm -rf ./nextcloud/apps/deckrestapi && mkdir -p ./nextcloud/apps/deckrestapi && cp -r ./appinfo ./lib ./nextcloud/apps/deckrestapi/"
     }

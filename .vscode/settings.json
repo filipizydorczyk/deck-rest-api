@@ -2,6 +2,7 @@
     "intelephense.environment.includePaths": [
         "./nextcloud/lib/public",
         "./vendor/phpunit/phpunit/src",
-        "./vendor/guzzlehttp/guzzle/src"
+        "./vendor/guzzlehttp/guzzle/src",
+        "./vendor/psr/http-message/src"
     ]
 }
