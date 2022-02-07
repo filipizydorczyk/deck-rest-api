@@ -18,13 +18,28 @@ class BoardEntity extends Entity implements \JsonSerializable
     protected $deletedAt = 0;
     protected $lastModified = 0;
 
+    /**
+     * @param Label[] $labels
+     */
+    public function setLabels($labels)
+    {
+        $this->labels = $labels;
+    }
+
     public function jsonSerialize()
     {
+        $labelsJson = array();
+
+        foreach ($this->labels as $entity) {
+            array_push($labelsJson, $entity->jsonSerialize());
+        }
+
         return [
+            'id' => $this->id,
             'title' => $this->title,
             'color' => $this->color,
             'archived' => $this->archived,
-            'labels' => $this->labels,
+            'labels' => $labelsJson,
             'stacks' => $this->stacks,
             'deletedAt' => $this->deletedAt,
             'lastModified' => $this->lastModified,

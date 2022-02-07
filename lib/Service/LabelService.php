@@ -15,12 +15,11 @@ class LabelService
 
     public function findAll(): array
     {
-        $result = [];
+        return $this->labelMapper->findAll();
+    }
 
-        foreach ($this->labelMapper->findAll() as $entity) {
-            array_push($result, $entity->jsonSerialize());
-        }
-
-        return $result;
+    public function findAllForBoard(int $id): array
+    {
+        return $this->labelMapper->findAllForBoard($id);
     }
 };
