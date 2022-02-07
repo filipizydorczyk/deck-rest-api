@@ -15,12 +15,6 @@ class BoardService
 
     public function findAll(): array
     {
-        $result = [];
-
-        foreach ($this->boardMapper->findAll() as $entity) {
-            array_push($result, $entity->jsonSerialize());
-        }
-
-        return $result;
+        return $this->boardMapper->findAll();
     }
 };

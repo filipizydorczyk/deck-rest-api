@@ -2,6 +2,7 @@
 
 namespace OCA\DeckREST\Db\Entity;
 
+use FG\ASN1\Universal\Boolean;
 use OCP\AppFramework\Db\Entity;
 
 class BoardEntity extends Entity implements \JsonSerializable
