@@ -2,7 +2,6 @@
 
 namespace OCA\DeckREST\Db\Entity;
 
-use FG\ASN1\Universal\Boolean;
 use OCP\AppFramework\Db\Entity;
 
 class BoardEntity extends Entity implements \JsonSerializable
@@ -11,7 +10,7 @@ class BoardEntity extends Entity implements \JsonSerializable
     protected $owner;
     protected $color;
     protected bool $archived = false;
-    /** @var Label[] */
+    /** @var LabelEntity[] */
     protected $labels = [];
     /** @var StackEntity[] */
     protected $stacks = [];
@@ -19,19 +18,32 @@ class BoardEntity extends Entity implements \JsonSerializable
     protected $lastModified = 0;
 
     /**
-     * @param Label[] $labels
+     * @param LabelEntity[] $labels
      */
     public function setLabels($labels)
     {
         $this->labels = $labels;
     }
 
+    /**
+     * @param StackEntity[] $labels
+     */
+    public function setStacks($stacks)
+    {
+        $this->stacks = $stacks;
+    }
+
     public function jsonSerialize()
     {
         $labelsJson = array();
+        $stacksJson = array();
 
         foreach ($this->labels as $entity) {
             array_push($labelsJson, $entity->jsonSerialize());
+        }
+
+        foreach ($this->stacks as $entity) {
+            array_push($stacksJson, $entity->jsonSerialize());
         }
 
         return [
@@ -40,7 +52,7 @@ class BoardEntity extends Entity implements \JsonSerializable
             'color' => $this->color,
             'archived' => $this->archived,
             'labels' => $labelsJson,
-            'stacks' => $this->stacks,
+            'stacks' => $stacksJson,
             'deletedAt' => $this->deletedAt,
             'lastModified' => $this->lastModified,
         ];

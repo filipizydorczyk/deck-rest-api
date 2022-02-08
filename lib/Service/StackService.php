@@ -15,12 +15,11 @@ class StackService
 
     public function findAll(): array
     {
-        $result = [];
+        return $this->stackMapper->findAll();
+    }
 
-        foreach ($this->stackMapper->findAll() as $entity) {
-            array_push($result, $entity->jsonSerialize());
-        }
-
-        return $result;
+    public function findAllByBoardId(int $id): array
+    {
+        return $this->stackMapper->findAllByBoardId($id);
     }
 };
