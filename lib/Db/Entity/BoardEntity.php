@@ -14,8 +14,8 @@ class BoardEntity extends Entity implements \JsonSerializable
     protected $labels = [];
     /** @var StackEntity[] */
     protected $stacks = [];
-    protected $deletedAt = 0;
-    protected $lastModified = 0;
+    protected int $deletedAt = 0;
+    protected int $lastModified = 0;
 
     /**
      * @param LabelEntity[] $labels

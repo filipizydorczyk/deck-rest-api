@@ -9,8 +9,8 @@ class StackEntity extends Entity implements \JsonSerializable
 
     protected $title;
     protected $boardId;
-    protected $deletedAt = 0;
-    protected $lastModified = 0;
+    protected int $deletedAt = 0;
+    protected int $lastModified = 0;
     protected $cards = [];
     protected $order;
 
