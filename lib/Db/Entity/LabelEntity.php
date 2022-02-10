@@ -10,7 +10,6 @@ class LabelEntity extends Entity implements \JsonSerializable
     protected $title;
     protected $color;
     protected $boardId;
-    protected $cardId;
     protected $lastModified;
 
     public function jsonSerialize()
@@ -19,7 +18,6 @@ class LabelEntity extends Entity implements \JsonSerializable
             'title' => $this->title,
             'color' => $this->color,
             'boardId' => $this->boardId,
-            'cardId' => $this->cardId,
             'lastModified' => $this->lastModified,
         ];
     }
