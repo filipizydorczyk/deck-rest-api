@@ -9,7 +9,7 @@ class LabelEntity extends Entity implements \JsonSerializable
 
     protected $title;
     protected $color;
-    protected $boardId;
+    protected int $boardId = 0;
     protected int $lastModified = 0;
 
     public function jsonSerialize()

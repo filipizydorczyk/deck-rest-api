@@ -8,11 +8,11 @@ class StackEntity extends Entity implements \JsonSerializable
 {
 
     protected $title;
-    protected $boardId;
+    protected int $boardId = 0;
     protected int $deletedAt = 0;
     protected int $lastModified = 0;
     protected $cards = [];
-    protected $order;
+    protected int $order = 0;
 
     public function jsonSerialize()
     {
