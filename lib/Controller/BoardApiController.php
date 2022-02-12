@@ -2,7 +2,7 @@
 
 namespace OCA\DeckREST\Controller;
 
-use OCA\DeckREST\Response\BoardResponse;
+use OCA\DeckREST\Response\JsonArrayResponse;
 use OCA\DeckREST\Service\BoardService;
 use OCP\App\IAppManager;
 use OCP\AppFramework\ApiController;
@@ -33,6 +33,6 @@ class BoardApiController extends ApiController
             return new DataResponse(['message' => "Deck app is required to be installed for this API to work"], HTTP::STATUS_FAILED_DEPENDENCY);
         }
 
-        return new BoardResponse($this->boardService->findAll(), HTTP::STATUS_OK);
+        return new JsonArrayResponse($this->boardService->findAll(), HTTP::STATUS_OK);
     }
 };

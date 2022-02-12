@@ -2,6 +2,7 @@
 
 namespace OCA\DeckREST\Controller;
 
+use OCA\DeckREST\Response\JsonArrayResponse;
 use OCA\DeckREST\Service\CardService;
 use OCP\App\IAppManager;
 use OCP\AppFramework\ApiController;
@@ -31,6 +32,6 @@ class CardApiController extends ApiController
         if (!$this->appManager->isEnabledForUser("deck")) {
             return new DataResponse(['message' => "Deck app is required to be installed for this API to work"], HTTP::STATUS_FAILED_DEPENDENCY);
         }
-        return new DataResponse($this->cardService->findAll(), HTTP::STATUS_OK);
+        return new JsonArrayResponse($this->cardService->findAll(), HTTP::STATUS_OK);
     }
 };
