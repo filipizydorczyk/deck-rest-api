@@ -3,11 +3,11 @@
 namespace OCA\DeckREST\Controller;
 
 use OCA\DeckREST\Response\JsonArrayResponse;
+use OCA\DeckREST\Response\MessageResponse;
 use OCA\DeckREST\Service\LabelService;
 use OCP\App\IAppManager;
 use OCP\AppFramework\ApiController;
 use OCP\AppFramework\Http;
-use OCP\AppFramework\Http\DataResponse;
 use OCP\IRequest;
 
 class LabelApiController extends ApiController
@@ -30,8 +30,9 @@ class LabelApiController extends ApiController
     {
         // @CORS
         if (!$this->appManager->isEnabledForUser("deck")) {
-            return new DataResponse(['message' => "Deck app is required to be installed for this API to work"], HTTP::STATUS_FAILED_DEPENDENCY);
+            return new MessageResponse("Deck app is required to be installed for this API to work", HTTP::STATUS_FAILED_DEPENDENCY);
         }
+
         return new JsonArrayResponse($this->labelService->findAll(), HTTP::STATUS_OK);
     }
 };
