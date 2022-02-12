@@ -1,4 +1,5 @@
  - resolve json reponses in each controller
+ - add types and comments
  - correct card types
  - consider user prevlige
  - fix `NoCSRFRequired`
