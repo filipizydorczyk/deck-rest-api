@@ -4,6 +4,7 @@ namespace OCA\DeckREST\Db\Mapper;
 
 use OCA\DeckREST\Db\Entity\CardEntity;
 use OCP\AppFramework\Db\QBMapper;
+use OCP\DB\QueryBuilder\IQueryBuilder;
 use OCP\IDBConnection;
 
 class CardMapper extends QBMapper
@@ -20,6 +21,16 @@ class CardMapper extends QBMapper
         $qb = $this->db->getQueryBuilder();
         $qb->select('*')
             ->from(CardMapper::$BOARD_TABLE)
+            ->orderBy('id');
+        return $this->findEntities($qb);
+    }
+
+    public function findAllByStackId(int $stackId): array
+    {
+        $qb = $this->db->getQueryBuilder();
+        $qb->select('*')
+            ->from(CardMapper::$BOARD_TABLE)
+            ->where($qb->expr()->eq('stack_id', $qb->createNamedParameter($stackId, IQueryBuilder::PARAM_INT)))
             ->orderBy('id');
         return $this->findEntities($qb);
     }

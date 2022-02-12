@@ -6,20 +6,38 @@ use OCA\DeckREST\Db\Mapper\StackMapper;
 
 class StackService
 {
+    private CardService $cardService;
     private StackMapper $stackMapper;
 
-    public function __construct(StackMapper $stackMapper)
+    public function __construct(CardService $cardService, StackMapper $stackMapper)
     {
+        $this->cardService = $cardService;
         $this->stackMapper = $stackMapper;
     }
 
     public function findAll(): array
     {
-        return $this->stackMapper->findAll();
+        $result = array();
+
+        foreach ($this->stackMapper->findAll() as $entity) {
+            $cards = $this->cardService->findAllByStackId($entity->id);
+            $entity->setCards($cards);
+            array_push($result, $entity);
+        }
+
+        return $result;
     }
 
     public function findAllByBoardId(int $id): array
     {
-        return $this->stackMapper->findAllByBoardId($id);
+        $result = array();
+
+        foreach ($this->stackMapper->findAllByBoardId($id) as $entity) {
+            $cards = $this->cardService->findAllByStackId($entity->id);
+            $entity->setCards($cards);
+            array_push($result, $entity);
+        }
+
+        return $result;
     }
 };

@@ -14,6 +14,11 @@ class StackEntity extends Entity implements \JsonSerializable
     protected $cards = [];
     protected int $order = 0;
 
+    public function setCards(array $cards)
+    {
+        $this->cards = $cards;
+    }
+
     public function jsonSerialize()
     {
         return [

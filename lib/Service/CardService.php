@@ -15,12 +15,11 @@ class CardService
 
     public function findAll(): array
     {
-        $result = [];
+        return $this->cardMapper->findAll();
+    }
 
-        foreach ($this->cardMapper->findAll() as $entity) {
-            array_push($result, $entity->jsonSerialize());
-        }
-
-        return $result;
+    public function findAllByStackId(int $stackId): array
+    {
+        return $this->cardMapper->findAllByStackId($stackId);
     }
 };
