@@ -7,26 +7,22 @@ use OCP\AppFramework\Db\Entity;
 class CardEntity extends Entity implements \JsonSerializable
 {
 
-    protected $title;
-    protected $description;
-    protected $descriptionPrev;
-    protected $stackId;
-    protected $type;
-    protected $lastModified;
+    protected ?string $title = null;
+    protected ?string $description = null;
+    protected ?string $descriptionPrev = null;
+    protected int $stackId = 0;
+    protected ?string $type = null;
+    protected int $lastModified = 0;
+    protected int $createdAt = 0;
+    protected $labels = [];
+    protected int $order = 0;
+    protected bool $archived = false;
+    protected ?int $duedate = null;
+    protected int $deletedAt = 0;
+
     protected $lastEditor;
-    protected $createdAt;
-    protected $labels;
-    protected $assignedUsers;
-    protected $attachments;
-    protected $attachmentCount;
     protected $owner;
-    protected $order;
-    protected $archived = false;
-    protected $duedate;
-    protected $notified = false;
-    protected $deletedAt = 0;
-    protected $commentsUnread = 0;
-    protected $commentsCount = 0;
+    protected $notified;
 
     public function jsonSerialize()
     {
@@ -37,20 +33,13 @@ class CardEntity extends Entity implements \JsonSerializable
             'stackId' => $this->stackId,
             'type' => $this->type,
             'lastModified' => $this->lastModified,
-            'lastEditor' => $this->lastEditor,
             'createdAt' => $this->createdAt,
             'labels' => $this->labels,
-            'assignedUsers' => $this->assignedUsers,
-            'attachments' => $this->attachments,
-            'attachmentCount' => $this->attachmentCount,
             'owner' => $this->owner,
             'order' => $this->order,
             'archived' => $this->archived,
             'duedate' => $this->duedate,
-            'notified' => $this->notified,
             'deletedAt' => $this->deletedAt,
-            'commentsUnread' => $this->commentsUnread,
-            'commentsCount' => $this->commentsCount,
         ];
     }
 }
