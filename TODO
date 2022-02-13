@@ -1,6 +1,5 @@
  - docs for rest endponits and tests for services and controllers
  - add types and comments
- - correct card types
  - consider user prevlige
  - fix `NoCSRFRequired`
  - consider what filters are needed
