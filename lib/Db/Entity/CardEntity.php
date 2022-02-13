@@ -35,7 +35,6 @@ class CardEntity extends Entity implements \JsonSerializable
             'lastModified' => $this->lastModified,
             'createdAt' => $this->createdAt,
             'labels' => $this->labels,
-            'owner' => $this->owner,
             'order' => $this->order,
             'archived' => $this->archived,
             'duedate' => $this->duedate,
