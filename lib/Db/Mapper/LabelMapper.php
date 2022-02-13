@@ -10,6 +10,7 @@ use OCP\IDBConnection;
 class LabelMapper extends QBMapper
 {
     public static $BOARD_TABLE = 'deck_labels';
+    public static $LABEL_CARD_RELATION_TABLE = 'deck_assigned_labels';
 
     public function __construct(IDBConnection $db)
     {
@@ -32,6 +33,18 @@ class LabelMapper extends QBMapper
             ->from(LabelMapper::$BOARD_TABLE)
             ->where($qb->expr()->eq('board_id', $qb->createNamedParameter($id, IQueryBuilder::PARAM_INT)))
             ->orderBy('id');
+        return $this->findEntities($qb);
+    }
+
+    public function findAllForCardId(int $id): array
+    {
+
+        $qb = $this->db->getQueryBuilder();
+        $qb->select('l.*')
+            ->from(LabelMapper::$LABEL_CARD_RELATION_TABLE, "al")
+            ->innerJoin("al", LabelMapper::$BOARD_TABLE, "l", "l.id = al.label_id")
+            ->where($qb->expr()->eq('card_id', $qb->createNamedParameter($id, IQueryBuilder::PARAM_INT)))
+            ->orderBy('l.id');
         return $this->findEntities($qb);
     }
 };

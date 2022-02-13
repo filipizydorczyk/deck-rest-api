@@ -7,15 +7,24 @@ use OCA\DeckREST\Db\Mapper\CardMapper;
 class CardService
 {
     private CardMapper $cardMapper;
+    private LabelService $labelService;
 
-    public function __construct(CardMapper $cardMapper)
+    public function __construct(CardMapper $cardMapper, LabelService $labelService)
     {
         $this->cardMapper = $cardMapper;
+        $this->labelService = $labelService;
     }
 
     public function findAll(): array
     {
-        return $this->cardMapper->findAll();
+        $result = array();
+        foreach ($this->cardMapper->findAll() as $entity) {
+            $labels = $this->labelService->findAllForCardId($entity->id);
+            $entity->setLabels($labels);
+            array_push($result, $entity);
+        }
+
+        return $result;
     }
 
     public function findAllByStackId(int $stackId): array

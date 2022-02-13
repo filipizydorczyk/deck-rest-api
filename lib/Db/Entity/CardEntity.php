@@ -24,6 +24,14 @@ class CardEntity extends Entity implements \JsonSerializable
     protected $owner;
     protected $notified;
 
+    /**
+     * @param LabelEntity[] labels to be set
+     */
+    public function setLabels(array $labels)
+    {
+        $this->labels = $labels;
+    }
+
     public function jsonSerialize()
     {
         return [

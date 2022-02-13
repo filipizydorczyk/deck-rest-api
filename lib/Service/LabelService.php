@@ -22,4 +22,9 @@ class LabelService
     {
         return $this->labelMapper->findAllForBoard($id);
     }
+
+    public function findAllForCardId(int $id): array
+    {
+        return $this->labelMapper->findAllForCardId($id);
+    }
 };
