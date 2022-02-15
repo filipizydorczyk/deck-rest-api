@@ -34,11 +34,19 @@ class BoardEntity extends Entity implements \JsonSerializable
     }
 
     /**
-     * @param StackEntity[] $labels
+     * @param StackEntity[] $stacks
      */
     public function setStacks($stacks)
     {
         $this->stacks = $stacks;
+    }
+
+    /**
+     * @return StackEntity[] $stacks
+     */
+    public function getStacks(): array
+    {
+        return $this->stacks;
     }
 
     public function jsonSerialize()
