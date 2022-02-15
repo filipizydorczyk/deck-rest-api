@@ -24,8 +24,8 @@ Collection of endpoints for boards.
         "archived": false,
         "labels": [],
         "stacks": [],
-        "deletedAt": "0",
-        "lastModified": "1644266184"
+        "deletedAt": 0,
+        "lastModified": 1644266184
     }
 ]
 ```
