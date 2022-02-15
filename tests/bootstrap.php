@@ -6,3 +6,5 @@ require_once __DIR__ . '/../lib/Service/LabelService.php';
 require_once __DIR__ . '/../lib/Service/StackService.php';
 require_once __DIR__ . '/../lib/Service/BoardService.php';
 require_once __DIR__ . '/../lib/Db/Entity/BoardEntity.php';
+require_once __DIR__ . '/../lib/Db/Entity/LabelEntity.php';
+require_once __DIR__ . '/../lib/Db/Entity/StackEntity.php';

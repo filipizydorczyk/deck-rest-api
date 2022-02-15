@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace OCA\DeckREST\Tests;
 
 use OCA\DeckREST\Db\Entity\BoardEntity;
+use OCA\DeckREST\Db\Entity\LabelEntity;
 use OCA\DeckREST\Db\Mapper\BoardMapper;
 use OCA\DeckREST\Service\BoardService;
 use OCA\DeckREST\Service\LabelService;
@@ -41,5 +42,45 @@ final class BoardServiceTest extends TestCase
 
         $this->boardMapper->expects($this->any())->method('findAll')->willReturn($boards);
         $this->assertEquals(count($this->boardService->findAll()), 1);
+    }
+
+    public function testGettingLabelsForBoard(): void
+    {
+        $board1 = new BoardEntity();
+        $board1->setId(1);
+        $board2 = new BoardEntity();
+        $board2->setId(2);
+
+        $label = new LabelEntity();
+        $label->setId(3);
+        $board2->setLabels([$label]);
+
+        $this->boardMapper->expects($this->any())->method('findAll')->willReturn([$board1, $board2]);
+        $this->labelService->expects($this->any())
+            ->method('findAllForBoard')
+            ->will(
+                $this->returnValueMap([
+                    [1, []],
+                    [2, [$label]],
+                ])
+            );
+
+        $this->assertEquals(
+            count(
+                array_values($this->boardService->findAll())[0]->getLabels()
+            ),
+            0
+        );
+        $this->assertEquals(
+            count(
+                array_values($this->boardService->findAll())[1]->getLabels()
+            ),
+            1
+        );
+    }
+
+    public function testGettingStacksForBoards(): void
+    {
+        $this->assertEquals(true, true);
     }
 }
