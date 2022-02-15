@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace OCA\DeckREST\Tests;
 
+use OCA\DeckREST\Db\Entity\BoardEntity;
 use OCA\DeckREST\Db\Mapper\BoardMapper;
 use OCA\DeckREST\Service\BoardService;
 use OCA\DeckREST\Service\LabelService;
 use OCA\DeckREST\Service\StackService;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 final class BoardServiceTest extends TestCase
@@ -32,6 +34,12 @@ final class BoardServiceTest extends TestCase
 
     public function testGettingAllBoards(): void
     {
-        $this->assertEquals(true, true);
+        $board = new BoardEntity();
+        $board->setId(1);
+
+        $boards = [$board];
+
+        $this->boardMapper->expects($this->any())->method('findAll')->willReturn($boards);
+        $this->assertEquals(count($this->boardService->findAll()), 1);
     }
 }
