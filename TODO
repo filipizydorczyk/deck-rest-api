@@ -1,5 +1,6 @@
- - docs for rest endponits and tests for services and controllers
- - add types and comments
- - consider user prevlige
- - fix `NoCSRFRequired`
- - consider what filters are needed
+- docs for rest endponits and tests for services and controllers
+- refactor bootstrap.php
+- add types and comments
+- consider user prevlige
+- fix `NoCSRFRequired`
+- consider what filters are needed
