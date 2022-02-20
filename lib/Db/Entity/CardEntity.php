@@ -32,6 +32,14 @@ class CardEntity extends Entity implements \JsonSerializable
         $this->labels = $labels;
     }
 
+    /**
+     * @param int id of stack card belongs to
+     */
+    public function setStackId(int $id)
+    {
+        $this->stackId = $id;
+    }
+
     public function jsonSerialize()
     {
         return [

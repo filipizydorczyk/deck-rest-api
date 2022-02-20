@@ -19,6 +19,14 @@ class StackEntity extends Entity implements \JsonSerializable
         $this->cards = $cards;
     }
 
+    /**
+     * @return array card entities that belongs to stack
+     */
+    public function getCards(): array
+    {
+        return $this->cards;
+    }
+
     public function jsonSerialize()
     {
         return [
