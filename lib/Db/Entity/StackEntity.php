@@ -27,6 +27,14 @@ class StackEntity extends Entity implements \JsonSerializable
         return $this->cards;
     }
 
+    /**
+     * @param id id of board stack belongs to
+     */
+    public function setBoardId($id)
+    {
+        $this->boardId = $id;
+    }
+
     public function jsonSerialize()
     {
         return [

@@ -2,6 +2,7 @@
 
 namespace OCA\DeckREST\Service;
 
+use OCA\DeckREST\Db\Entity\BoardEntity;
 use OCA\DeckREST\Db\Entity\CardEntity;
 use OCA\DeckREST\Db\Entity\StackEntity;
 use OCA\DeckREST\Db\Mapper\StackMapper;
@@ -83,5 +84,28 @@ final class StackServiceTest extends TestCase
         );
     }
 
-    // findAllRelatedToBoard
+    public function testFindAllByBoardId()
+    {
+        $board1 = new BoardEntity();
+        $board1->setId(1);
+        $board2 = new BoardEntity();
+        $board2->setId(2);
+
+        $stack1 = new StackEntity();
+        $stack1->setId(3);
+        $stack1->setBoardId(1);
+        $stack2 = new StackEntity();
+        $stack2->setId(4);
+        $stack2->setBoardId(1);
+
+        $this->stackMapper->expects($this->any())->method('findAllByBoardId')->will(
+            $this->returnValueMap([
+                [1, [$stack1, $stack2]],
+                [2, []],
+            ])
+        );
+
+        $this->assertEquals(count($this->stackService->findAllByBoardId(1)), 2);
+        $this->assertEquals(count($this->stackService->findAllByBoardId(2)), 0);
+    }
 }
