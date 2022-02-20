@@ -108,4 +108,53 @@ final class StackServiceTest extends TestCase
         $this->assertEquals(count($this->stackService->findAllByBoardId(1)), 2);
         $this->assertEquals(count($this->stackService->findAllByBoardId(2)), 0);
     }
+
+    public function testFindAllByBoardIdIncludesCards()
+    {
+        $board1 = new BoardEntity();
+        $board1->setId(1);
+        $board2 = new BoardEntity();
+        $board2->setId(2);
+
+        $stack1 = new StackEntity();
+        $stack1->setId(3);
+        $stack1->setBoardId(1);
+        $stack2 = new StackEntity();
+        $stack2->setId(4);
+        $stack2->setBoardId(1);
+
+        $card1 = new CardEntity();
+        $card1->setId(5);
+        $card1->setStackId(4);
+
+        $this->stackMapper->expects($this->any())->method('findAllByBoardId')->will(
+            $this->returnValueMap([
+                [1, [$stack1, $stack2]],
+                [2, []],
+            ])
+        );
+
+        $this->cardService->expects($this->any())->method('findAllByStackId')->will(
+            $this->returnValueMap([
+                [3, []],
+                [4, [$card1]],
+            ])
+        );
+
+        $this->assertEquals(count($this->stackService->findAllByBoardId(1)), 2);
+        $this->assertEquals(count($this->stackService->findAllByBoardId(2)), 0);
+
+        $this->assertEquals(
+            count(
+                array_values($this->stackService->findAllByBoardId(1))[0]->getCards()
+            ),
+            0
+        );
+        $this->assertEquals(
+            count(
+                array_values($this->stackService->findAllByBoardId(1))[1]->getCards()
+            ),
+            1
+        );
+    }
 }
