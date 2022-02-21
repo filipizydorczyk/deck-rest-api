@@ -8,6 +8,8 @@ For development u are going to need `composer` and `docker` installed. To test a
 -   `composer build` - will delete previous build and push new one
 -   `composer test` - will run unit tests (need to run `composer update` first to have unit tests dependencies)
 
+In order to pass tets you need to have created nextcloud container from project docker compose since controller tests will do calls to actuall nextcloud instance. Tests for services are being tested with mocks so these will work either way.
+
 Watch that you have to have [deck](https://github.com/nextcloud/deck) app installed and enabled in order to get this api working. Otherwise any request will return **424 Failed Dependency** error.
 
 To tests endpoints with postman you can download [postman collection file](./docs/deck-rest-api.postman_collection.json)
