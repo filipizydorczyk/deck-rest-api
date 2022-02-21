@@ -19,14 +19,12 @@ Collection of endpoints for labels.
 ```json
 [
     {
-        "title": "Personal",
-        "color": "0087C5",
-        "archived": false,
-        "labels": [],
-        "stacks": [],
-        "deletedAt": 0,
-        "lastModified": 1644266184
-    }
+        "title": "Finished",
+        "color": "31CC7C",
+        "boardId": 1,
+        "lastModified": 1644534480
+    },
+    ...
 ]
 ```
 
