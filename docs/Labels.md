@@ -1,8 +1,8 @@
 # Boards endpoints
 
-Collection of endpoints for cards.
+Collection of endpoints for labels.
 
-**URL** : `/apps/deckrestapi/api/v1/cards`
+**URL** : `/apps/deckrestapi/api/v1/labels`
 
 **Method** : `GET`
 
@@ -19,25 +19,13 @@ Collection of endpoints for cards.
 ```json
 [
     {
-        "title": "Example Task 3",
-        "description": "",
-        "descriptionPrev": null,
-        "stackId": 1,
-        "type": "text",
-        "lastModified": 1644534535,
-        "createdAt": 1644534480,
-        "labels": [
-            {
-                "title": "Finished",
-                "color": "31CC7C",
-                "boardId": 1,
-                "lastModified": 1644534480
-            }
-        ],
-        "order": 0,
+        "title": "Personal",
+        "color": "0087C5",
         "archived": false,
-        "duedate": null,
-        "deletedAt": 0
+        "labels": [],
+        "stacks": [],
+        "deletedAt": 0,
+        "lastModified": 1644266184
     }
 ]
 ```
