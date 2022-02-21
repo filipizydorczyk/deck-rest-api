@@ -6,6 +6,7 @@ namespace OCA\DeckREST\Tests;
 
 use OCA\DeckREST\Db\Entity\CardEntity;
 use OCA\DeckREST\Db\Entity\LabelEntity;
+use OCA\DeckREST\Db\Entity\StackEntity;
 use OCA\DeckREST\Db\Mapper\CardMapper;
 use OCA\DeckREST\Service\CardService;
 use OCA\DeckREST\Service\LabelService;
@@ -65,6 +66,23 @@ final class CardServiceTest extends TestCase
             count(
                 array_values($this->cardService->findAll())[0]->getLabels()
             ),
+            1
+        );
+    }
+
+    public function testFindAllByStackId()
+    {
+        $card = new CardEntity();
+        $card->setId(1);
+
+        $stack = new StackEntity();
+        $stack->setId(2);
+        $stack->setCards([$card]);
+
+        $this->cardMapper->expects($this->any())->method('findAllByStackId')->with(2)->willReturn([$card]);
+
+        $this->assertEquals(
+            count($this->cardService->findAllByStackId(2)),
             1
         );
     }
