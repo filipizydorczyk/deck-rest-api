@@ -1,4 +1,10 @@
+Currently I stoped developing this project. The original idea for this was to create more flexible REST API for deck application for another project I wanted to do but I realized that I no longer need that project in form I thought so I no longer need this one. It's surely unfinished but feel free to use it as base for your project if u ever find this usefull in any way xD
+
+---
+
 This plugin is providing REST API for another nextcloud plugin called [deck](https://github.com/nextcloud/deck). The original REST API provides some endpoint but you cannot for example backup all boards with single requests and this is example of functionality that this API is going to provide. More in readme when development will start.
+
+You can find endpoints docs [here](./docs/README.md)
 
 # 📲 Testing app
 
