@@ -12,6 +12,14 @@ class LabelEntity extends Entity implements \JsonSerializable
     protected int $boardId = 0;
     protected int $lastModified = 0;
 
+    /**
+     * @param id id of board label belongs to
+     */
+    public function setBoardId(int $id)
+    {
+        $this->boardId = $id;
+    }
+
     public function jsonSerialize()
     {
         return [
