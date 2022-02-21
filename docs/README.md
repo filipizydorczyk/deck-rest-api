@@ -5,7 +5,7 @@ This api provides following endpoints. All of them are read only and there is no
 -   [Boards](./Boards.md) : `GET /apps/deckrestapi/api/v1/boards`
 -   [Labels]() : `GET /apps/deckrestapi/api/v1/labels`
 -   [Stacks]() : `GET /apps/deckrestapi/api/v1/stacks`
--   [Cards]() : `GET /apps/deckrestapi/api/v1/cards`
+-   [Cards](./Cards.md) : `GET /apps/deckrestapi/api/v1/cards`
 
 ---
 
