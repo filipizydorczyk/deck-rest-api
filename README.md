@@ -1,4 +1,4 @@
-Currently I stoped developing this project. The original idea for this was to create more flexible REST API for deck application for another project I wanted to do but I realized that I no longer need that project in form I thought so I no longer need this one. It's surely unfinished but feel free to use it as base for your project if u ever find this usefull in any way xD
+Currently I stoped developing this project. The original idea for this was to create more flexible REST API for deck application for another project I wanted to do but I realized that I no longer need that project in form I thought so I no longer need this one. It's surely unfinished (some things to do are written in `TODO` file) but feel free to use it as base for your project if u ever find this usefull in any way xD
 
 ---
 
