@@ -24,7 +24,7 @@ final class CardServiceTest extends TestCase
     {
         parent::setUp();
         $this->labelService = $this->createMock(LabelService::class);
-        $this->labelMapper = $this->createMock(LabelMapper::class);
+        $this->cardMapper = $this->createMock(CardMapper::class);
         $this->cardService = new CardService($this->cardMapper, $this->labelService);
     }
 }
